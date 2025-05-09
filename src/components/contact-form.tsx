@@ -61,12 +61,11 @@ export function FooterContactForm() {
     console.log(values);
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 5000);
-  }
-  return (
-    <footer className="relative min-h-screen overflow-hidden bg-background/50 backdrop-blur-3xl text-foreground w-full">
+  }  return (
+    <section className="relative min-h-screen overflow-hidden bg-background/50 backdrop-blur-3xl text-foreground w-full">
       <div className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[size:60px_60px] -z-10" />
-      <div className="relative z-10 px-8 py-16 w-full max-w-[2000px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+      <div className="relative z-10 px-8 pt-16 w-full max-w-[2000px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-16">
           {/* Company Info Section */}
           <div className="lg:col-span-2 space-y-8">
             <div>
@@ -312,25 +311,19 @@ export function FooterContactForm() {
               </Form>
             )}
           </div>
-        </div>
-
-        <Separator className="my-8 bg-slate-800" />
-
-        <div className="flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
-          <p>© 2025 Company Name. All rights reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-primary transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-primary transition-colors">
-              Terms of Service
-            </a>
-            <a href="#" className="hover:text-primary transition-colors">
-              Cookie Policy
-            </a>
+        </div><footer className="w-full bg-background/80 backdrop-blur-xl mt-auto border-t border-primary/10">
+          <div className="w-full max-w-[2000px] mx-auto px-8 py-6">
+            <div className="flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
+              <p>© 2025 Company Name. All rights reserved.</p>
+              <div className="flex gap-6 mt-4 md:mt-0">
+                <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
+                <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
+                <a href="#" className="hover:text-primary transition-colors">Cookie Policy</a>
+              </div>
+            </div>
           </div>
-        </div>
+        </footer>
       </div>
-    </footer>
+    </section>
   );
 }
