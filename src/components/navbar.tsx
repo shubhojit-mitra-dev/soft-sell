@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -19,13 +19,19 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { DollarSign, Menu, X, ChevronDown, Users, Zap, LifeBuoy, ShieldCheck, BookOpen } from "lucide-react";
+import {
+  DollarSign,
+  Menu,
+  X,
+  ChevronDown,
+  Users,
+  Zap,
+  LifeBuoy,
+  ShieldCheck,
+  BookOpen,
+} from "lucide-react";
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
@@ -37,8 +43,8 @@ export function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Features submenu items
@@ -47,26 +53,26 @@ export function Navbar() {
       title: "License Marketplace",
       description: "Buy and sell software licenses securely",
       icon: <DollarSign className="h-5 w-5 text-primary" />,
-      href: "#marketplace"
+      href: "#marketplace",
     },
     {
       title: "Verification System",
       description: "Automated validation for all licenses",
       icon: <ShieldCheck className="h-5 w-5 text-primary" />,
-      href: "#verification"
+      href: "#verification",
     },
     {
       title: "Enterprise Solutions",
       description: "Custom solutions for large organizations",
       icon: <Users className="h-5 w-5 text-primary" />,
-      href: "#enterprise"
+      href: "#enterprise",
     },
     {
       title: "Quick Transfer",
       description: "Fast and secure license transfers",
       icon: <Zap className="h-5 w-5 text-primary" />,
-      href: "#transfer"
-    }
+      href: "#transfer",
+    },
   ];
 
   // Resources submenu items
@@ -75,32 +81,32 @@ export function Navbar() {
       title: "Help Center",
       description: "Get support and answers to common questions",
       icon: <LifeBuoy className="h-5 w-5 text-primary" />,
-      href: "#help"
+      href: "#help",
     },
     {
       title: "Documentation",
       description: "Detailed guides and resources",
       icon: <BookOpen className="h-5 w-5 text-primary" />,
-      href: "#docs"
-    }
+      href: "#docs",
+    },
   ];
 
   return (
-    <header 
+    <header
       className={cn(
         "sticky top-0 z-50 w-full backdrop-blur transition-all duration-300",
-        isScrolled 
-          ? "bg-background/95 border-b shadow-sm" 
-          : "bg-background/60"
+        isScrolled ? "bg-background/95 border-b shadow-sm" : "bg-background/60"
       )}
     >
-      <div className="container flex h-16 items-center justify-between">
-        {/* Logo */}
+      <div className="w-full px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
+        {/* Logo with Favicon */}
         <Link href="/" className="flex items-center space-x-2 font-bold">
-          <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
-            <DollarSign className="h-5 w-5 text-primary" />
+          <div className="h-8 w-8 flex items-center justify-center">
+            <img src="/favicon.ico" alt="Logo" className="h-full w-full" />
           </div>
-          <span className="text-xl bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">SoftSell</span>
+          <span className="text-xl bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+            SoftSell
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -123,7 +129,9 @@ export function Navbar() {
                           >
                             <div className="flex items-center gap-2">
                               {feature.icon}
-                              <div className="text-sm font-medium leading-none">{feature.title}</div>
+                              <div className="text-sm font-medium leading-none">
+                                {feature.title}
+                              </div>
                             </div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
                               {feature.description}
@@ -135,7 +143,7 @@ export function Navbar() {
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-              
+
               {/* Resources Dropdown */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="text-sm font-medium">
@@ -152,7 +160,9 @@ export function Navbar() {
                           >
                             <div className="flex items-center gap-2">
                               {resource.icon}
-                              <div className="text-sm font-medium leading-none">{resource.title}</div>
+                              <div className="text-sm font-medium leading-none">
+                                {resource.title}
+                              </div>
                             </div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground mt-1">
                               {resource.description}
@@ -168,7 +178,7 @@ export function Navbar() {
               {/* Static Links */}
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link 
+                  <Link
                     href="#testimonials"
                     className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                   >
@@ -178,7 +188,7 @@ export function Navbar() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
-                  <Link 
+                  <Link
                     href="#contact"
                     className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                   >
@@ -194,12 +204,12 @@ export function Navbar() {
             <Button variant="outline" size="sm">
               Sign In
             </Button>
-            
+
             <Button size="sm" className="group">
               Sell Licenses
               <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
             </Button>
-            
+
             {/* Theme toggle */}
             <Button
               variant="ghost"
@@ -226,7 +236,7 @@ export function Navbar() {
             <SunIcon className="h-5 w-5 rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0" />
             <MoonIcon className="absolute h-5 w-5 rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100" />
           </Button>
-          
+
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -237,23 +247,33 @@ export function Navbar() {
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center py-4 border-b">
                   <div className="flex items-center space-x-2">
-                    <div className="h-8 w-8 rounded-full bg-primary/20 flex items-center justify-center">
-                      <DollarSign className="h-5 w-5 text-primary" />
+                    <div className="h-8 w-8 flex items-center justify-center">
+                      <img
+                        src="/favicon.ico"
+                        alt="Logo"
+                        className="h-full w-full"
+                      />
                     </div>
                     <span className="font-bold text-xl">SoftSell</span>
                   </div>
-                  <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setIsOpen(false)}
+                  >
                     <X className="h-5 w-5" />
                   </Button>
                 </div>
-                
+
                 <div className="flex-1 overflow-auto py-6 space-y-6">
                   {/* Mobile Features */}
                   <div className="space-y-3">
-                    <h4 className="text-sm font-medium text-muted-foreground px-4">Features</h4>
+                    <h4 className="text-sm font-medium text-muted-foreground px-4">
+                      Features
+                    </h4>
                     <div className="space-y-1">
                       {features.map((feature) => (
-                        <Link 
+                        <Link
                           key={feature.title}
                           href={feature.href}
                           className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-accent rounded-md"
@@ -265,13 +285,15 @@ export function Navbar() {
                       ))}
                     </div>
                   </div>
-                  
+
                   {/* Mobile Resources */}
                   <div className="space-y-3">
-                    <h4 className="text-sm font-medium text-muted-foreground px-4">Resources</h4>
+                    <h4 className="text-sm font-medium text-muted-foreground px-4">
+                      Resources
+                    </h4>
                     <div className="space-y-1">
                       {resources.map((resource) => (
-                        <Link 
+                        <Link
                           key={resource.title}
                           href={resource.href}
                           className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-accent rounded-md"
@@ -283,20 +305,22 @@ export function Navbar() {
                       ))}
                     </div>
                   </div>
-                  
+
                   {/* Mobile Static Links */}
                   <div className="space-y-3">
-                    <h4 className="text-sm font-medium text-muted-foreground px-4">More</h4>
+                    <h4 className="text-sm font-medium text-muted-foreground px-4">
+                      More
+                    </h4>
                     <div className="space-y-1">
-                      <Link 
-                        href="#testimonials" 
+                      <Link
+                        href="#testimonials"
                         className="flex items-center px-4 py-2 text-sm hover:bg-accent rounded-md"
                         onClick={() => setIsOpen(false)}
                       >
                         Testimonials
                       </Link>
-                      <Link 
-                        href="#contact" 
+                      <Link
+                        href="#contact"
                         className="flex items-center px-4 py-2 text-sm hover:bg-accent rounded-md"
                         onClick={() => setIsOpen(false)}
                       >
@@ -305,10 +329,14 @@ export function Navbar() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="border-t py-4 space-y-3">
-                  <Button className="w-full" size="sm">Sell Licenses</Button>
-                  <Button className="w-full" variant="outline" size="sm">Sign In</Button>
+                  <Button className="w-full" size="sm">
+                    Sell Licenses
+                  </Button>
+                  <Button className="w-full" variant="outline" size="sm">
+                    Sign In
+                  </Button>
                 </div>
               </div>
             </SheetContent>
