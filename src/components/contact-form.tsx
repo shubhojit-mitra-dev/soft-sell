@@ -41,10 +41,9 @@ export function FooterContactForm() {
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 5000);
   }
-
-  return (
-    <footer className="bg-slate-950 text-white">
-      <div className="container px-4 py-16">
+  return (    <footer className="relative min-h-screen overflow-hidden bg-background/50 backdrop-blur-3xl text-foreground w-full">
+      <div className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[size:60px_60px] -z-10" />
+      <div className="relative z-10 px-8 py-16 w-full max-w-[2000px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Company Info Section */}
           <div className="lg:col-span-2 space-y-8">
@@ -74,15 +73,14 @@ export function FooterContactForm() {
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-3">Follow Us</h3>
-              <div className="flex gap-4">
-                <a href="#" className="bg-slate-800 hover:bg-primary transition-colors p-2 rounded-full">
+              <h3 className="text-lg font-semibold mb-3">Follow Us</h3>                <div className="flex gap-4">
+                <a href="#" className="bg-card/80 backdrop-blur-sm hover:bg-secondary/80 transition-colors p-2 rounded-full border border-primary/10">
                   <Twitter size={20} />
                 </a>
-                <a href="#" className="bg-slate-800 hover:bg-primary transition-colors p-2 rounded-full">
+                <a href="#" className="bg-card/80 backdrop-blur-sm hover:bg-secondary/80 transition-colors p-2 rounded-full border border-primary/10">
                   <Github size={20} />
                 </a>
-                <a href="#" className="bg-slate-800 hover:bg-primary transition-colors p-2 rounded-full">
+                <a href="#" className="bg-card/80 backdrop-blur-sm hover:bg-secondary/80 transition-colors p-2 rounded-full border border-primary/10">
                   <Instagram size={20} />
                 </a>
               </div>
@@ -110,10 +108,9 @@ export function FooterContactForm() {
               </li>
             </ul>
           </div>
-          
-          {/* Contact Form Section */}
-          <div className="lg:col-span-2 bg-slate-900 rounded-lg p-6">
-            <h3 className="text-xl font-bold mb-4">Send us a message</h3>
+            {/* Contact Form Section */}
+          <div className="lg:col-span-2 bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-primary/10 shadow-lg">
+            <h3 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">Send us a message</h3>
             
             {isSubmitted ? (
               <Alert className="bg-green-900/50 border-green-600 text-white">
@@ -134,10 +131,10 @@ export function FooterContactForm() {
                         <FormItem>
                           <FormLabel className="text-slate-300">Name</FormLabel>
                           <FormControl>
-                            <Input 
+              <Input 
                               placeholder="Your name" 
                               {...field} 
-                              className="bg-slate-800 border-slate-700 focus-visible:ring-primary" 
+                              className="bg-card/80 backdrop-blur-sm border-primary/10 focus-visible:ring-secondary" 
                             />
                           </FormControl>
                           <FormMessage className="text-red-400" />
@@ -224,10 +221,10 @@ export function FooterContactForm() {
                       </FormItem>
                     )}
                   />
-                  
-                  <Button 
+                    <Button 
                     type="submit" 
-                    className="w-full bg-primary hover:bg-primary/90 text-white"
+                    variant="secondary"
+                    className="w-full"
                   >
                     Send Message
                   </Button>

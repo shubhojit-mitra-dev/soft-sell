@@ -1,9 +1,15 @@
-'use client';
+"use client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Check, ArrowRight, DollarSign, ShieldCheck, Sparkles } from "lucide-react";
+import {
+  Check,
+  ArrowRight,
+  DollarSign,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 import { useState, useEffect } from "react";
 import { loadSlim } from "@tsparticles/slim";
 import Particles from "@tsparticles/react";
@@ -22,7 +28,7 @@ export function HeroSection() {
   // Initialize particles
   useEffect(() => {
     let container: Container | undefined;
-    
+
     const initParticles = async () => {
       await loadSlim(tsParticles);
       container = await tsParticles.load({
@@ -32,19 +38,19 @@ export function HeroSection() {
           particles: {
             ...particlesConfig.particles,
             color: {
-              value: "#808080"
+              value: "#808080",
             },
             number: {
-              value: 25
+              value: 25,
             },
             opacity: {
-              value: 0.15
-            }
-          }
-        }
+              value: 0.15,
+            },
+          },
+        },
       });
     };
-    
+
     initParticles();
 
     return () => {
@@ -62,16 +68,19 @@ export function HeroSection() {
   // Animate the stats
   useEffect(() => {
     const interval = setInterval(() => {
-      setStats(prev => 
-        prev.map(stat => ({
+      setStats((prev) =>
+        prev.map((stat) => ({
           ...stat,
-          value: Math.min(stat.value + Math.ceil(stat.target / 50), stat.target)
+          value: Math.min(
+            stat.value + Math.ceil(stat.target / 50),
+            stat.target
+          ),
         }))
       );
     }, 50);
 
     // Clear interval when all stats reach their target
-    if (stats.every(stat => stat.value === stat.target)) {
+    if (stats.every((stat) => stat.value === stat.target)) {
       clearInterval(interval);
     }
 
@@ -88,12 +97,17 @@ export function HeroSection() {
       </div>
 
       <div className="container relative z-10 px-4 py-8 mx-auto">
-        <div 
-          className={`flex flex-col items-center gap-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        <div
+          className={`flex flex-col items-center gap-8 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
         >
           {/* Announcement badge */}
-          <Badge variant="outline" className="px-4 py-1.5 bg-background/80 backdrop-blur border-primary/20 text-sm font-medium mb-2">
-            <Sparkles className="h-3.5 w-3.5 mr-2 text-primary" /> 
+          <Badge
+            variant="outline"
+            className="px-4 py-1.5 bg-background/80 backdrop-blur border-primary/20 text-sm font-medium mb-2"
+          >
+            <Sparkles className="h-3.5 w-3.5 mr-2 text-primary" />
             New platform launch! Save up to 60% on enterprise software
           </Badge>
 
@@ -102,13 +116,14 @@ export function HeroSection() {
               Turn Unused Software into Real Value
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              SoftSell is the secure marketplace for businesses to buy and sell unused software licenses at incredible prices.
+              SoftSell is the secure marketplace for businesses to buy and sell
+              unused software licenses at incredible prices.
             </p>
           </div>
 
           <div className="w-full max-w-4xl mx-auto mt-6">
-            <Tabs 
-              defaultValue="sell" 
+            <Tabs
+              defaultValue="sell"
               className="w-full"
               value={activeTab}
               onValueChange={setActiveTab}
@@ -117,20 +132,24 @@ export function HeroSection() {
                 <TabsTrigger value="sell">Sell Licenses</TabsTrigger>
                 <TabsTrigger value="buy">Buy Licenses</TabsTrigger>
               </TabsList>
-              
+
               <TabsContent value="sell" className="mt-0">
                 <Card className="border border-primary/10 shadow-lg bg-background/70 backdrop-blur">
                   <CardContent className="p-6 lg:p-8">
                     <div className="grid lg:grid-cols-5 gap-8 items-center">
                       <div className="lg:col-span-3 space-y-4">
-                        <h3 className="text-2xl font-semibold">Convert idle licenses to cash</h3>
+                        <h3 className="text-2xl font-semibold">
+                          Convert idle licenses to cash
+                        </h3>
                         <p className="text-muted-foreground">
-                          List your unused enterprise software licenses on our secure marketplace and turn sunk costs into revenue.
+                          List your unused enterprise software licenses on our
+                          secure marketplace and turn sunk costs into revenue.
                         </p>
                         <ul className="space-y-2">
                           {[
-                            "Instant verification system",                            "Secure payment processing",
-                            "Professional license transfer support"
+                            "Instant verification system",
+                            "Secure payment processing",
+                            "Professional license transfer support",
                           ].map((item, i) => (
                             <li key={i} className="flex items-center gap-2">
                               <Check className="h-5 w-5 text-primary" />
@@ -147,7 +166,7 @@ export function HeroSection() {
                                 const file = e.target.files?.[0];
                                 if (file) {
                                   // Handle the file upload here
-                                  console.log('Selected file:', file);
+                                  console.log("Selected file:", file);
                                 }
                               }}
                               className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
@@ -169,21 +188,24 @@ export function HeroSection() {
                   </CardContent>
                 </Card>
               </TabsContent>
-              
+
               <TabsContent value="buy" className="mt-0">
                 <Card className="border border-secondary/10 shadow-lg bg-background/70 backdrop-blur">
                   <CardContent className="p-6 lg:p-8">
                     <div className="grid lg:grid-cols-5 gap-8 items-center">
                       <div className="lg:col-span-3 space-y-4">
-                        <h3 className="text-2xl font-semibold">Get premium software at a fraction of the cost</h3>
+                        <h3 className="text-2xl font-semibold">
+                          Get premium software at a fraction of the cost
+                        </h3>
                         <p className="text-muted-foreground">
-                          Browse verified licenses from trusted sources and save up to 60% off retail prices.
+                          Browse verified licenses from trusted sources and save
+                          up to 60% off retail prices.
                         </p>
                         <ul className="space-y-2">
                           {[
                             "All licenses verified and guaranteed",
                             "Full transfer of ownership rights",
-                            "30-day money back guarantee"
+                            "30-day money back guarantee",
                           ].map((item, i) => (
                             <li key={i} className="flex items-center gap-2">
                               <Check className="h-5 w-5 text-secondary" />
@@ -192,7 +214,11 @@ export function HeroSection() {
                           ))}
                         </ul>
                         <div className="pt-4">
-                          <Button size="lg" variant="secondary" className="group">
+                          <Button
+                            size="lg"
+                            variant="secondary"
+                            className="group"
+                          >
                             Browse Marketplace
                             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                           </Button>
@@ -213,11 +239,17 @@ export function HeroSection() {
           {/* Stats section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 w-full max-w-3xl mx-auto">
             {stats.map((stat, index) => (
-              <div key={index} className="bg-background/50 backdrop-blur border border-primary/10 rounded-lg p-6 text-center">
+              <div
+                key={index}
+                className="bg-background/50 backdrop-blur border border-primary/10 rounded-lg p-6 text-center"
+              >
                 <div className="text-3xl font-bold text-primary">
-                  {stat.value.toLocaleString()}{stat.suffix || ''}
+                  {stat.value.toLocaleString()}
+                  {stat.suffix || ""}
                 </div>
-                <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+                <div className="text-sm text-muted-foreground mt-1">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
