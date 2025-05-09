@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -14,19 +14,22 @@ const testimonials = [
     name: "Sarah Chen",
     role: "IT Director",
     company: "TechCorp Solutions",
-    content: "SoftSell made it incredibly easy to recover value from our unused enterprise licenses. The process was smooth and secure.",
+    content:
+      "SoftSell made it incredibly easy to recover value from our unused enterprise licenses. The process was smooth and secure.",
   },
   {
     name: "Michael Rodriguez",
     role: "Operations Manager",
     company: "Innovate Systems",
-    content: "We've saved thousands by selling our unused licenses through SoftSell. Their valuation system is transparent and fair.",
+    content:
+      "We've saved thousands by selling our unused licenses through SoftSell. Their valuation system is transparent and fair.",
   },
   {
     name: "Emily Watson",
     role: "Software Procurement Lead",
     company: "DataFlow Analytics",
-    content: "The verification system gives us confidence in every purchase. We've acquired essential software at significant discounts without any licensing issues.",
+    content:
+      "The verification system gives us confidence in every purchase. We've acquired essential software at significant discounts without any licensing issues.",
   },
 ];
 
@@ -43,7 +46,8 @@ const containerVariants = {
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
-    y: 0, opacity: 1,
+    y: 0,
+    opacity: 1,
     transition: {
       type: "spring",
       stiffness: 100,
@@ -55,15 +59,15 @@ const itemVariants = {
 export function Testimonials() {
   useEffect(() => {
     let container: Container | undefined;
-    
+
     const initParticles = async () => {
       await loadSlim(tsParticles);
       container = await tsParticles.load({
         id: "testimonialsParticles",
-        options: particlesConfig
+        options: particlesConfig,
       });
     };
-    
+
     initParticles();
 
     return () => {
@@ -72,11 +76,14 @@ export function Testimonials() {
   }, []);
 
   return (
-    <section id="testimonials" className="relative min-h-screen overflow-hidden">
+    <section
+      id="testimonials"
+      className="relative min-h-screen overflow-hidden"
+    >
       <div id="testimonialsParticles" className="absolute inset-0 -z-10" />
-      
+
       <div className="container relative z-10 mx-auto px-4 py-24 sm:px-6 lg:py-32">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -130,7 +137,9 @@ export function Testimonials() {
                     <p className="text-muted-foreground relative">
                       "{testimonial.content}"
                     </p>
-                    <div className="absolute top-4 right-4 text-primary/5 text-8xl font-serif">"</div>
+                    <div className="absolute top-4 right-4 text-primary/5 text-8xl font-serif">
+                      "
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>

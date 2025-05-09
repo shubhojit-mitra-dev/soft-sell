@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useCallback, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
@@ -6,9 +6,19 @@ import { loadSlim } from "@tsparticles/slim";
 import Particles from "@tsparticles/react";
 import type { Container, Engine } from "@tsparticles/engine";
 import { particlesConfig } from "@/config/particles-config";
-import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+} from "@/components/ui/card";
 import VanillaTilt from "vanilla-tilt";
-import { LightningBoltIcon, LockClosedIcon, PersonIcon, StarIcon } from "@radix-ui/react-icons";
+import {
+  LightningBoltIcon,
+  LockClosedIcon,
+  PersonIcon,
+  StarIcon,
+} from "@radix-ui/react-icons";
 import { tsParticles } from "@tsparticles/engine";
 
 const features = [
@@ -47,7 +57,8 @@ const containerVariants = {
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
-    y: 0, opacity: 1,
+    y: 0,
+    opacity: 1,
     transition: {
       type: "spring",
       stiffness: 100,
@@ -84,15 +95,15 @@ function TiltCard({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <motion.div 
+    <motion.div
       ref={cardRef}
-      whileHover={{ 
+      whileHover={{
         translateY: -5,
-        transition: { duration: 0.2 } 
+        transition: { duration: 0.2 },
       }}
-      whileTap={{ 
+      whileTap={{
         scale: 0.98,
-        transition: { duration: 0.1 } 
+        transition: { duration: 0.1 },
       }}
     >
       {children}
@@ -103,12 +114,12 @@ function TiltCard({ children }: { children: React.ReactNode }) {
 export function WhyChooseUs() {
   useEffect(() => {
     let container: Container | undefined;
-    
+
     const initParticles = async () => {
       await loadSlim(tsParticles);
       container = await tsParticles.load({
         id: "tsparticles",
-        options: particlesConfig
+        options: particlesConfig,
       });
     };
     initParticles();
@@ -119,11 +130,14 @@ export function WhyChooseUs() {
   }, []);
 
   return (
-    <section id="why-choose-us" className="relative min-h-screen overflow-hidden">
+    <section
+      id="why-choose-us"
+      className="relative min-h-screen overflow-hidden"
+    >
       <div id="tsparticles" className="absolute inset-0 -z-10" />
-      
+
       <div className="container relative z-10 mx-auto px-4 py-24 sm:px-6 lg:py-32">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -161,7 +175,9 @@ export function WhyChooseUs() {
                       <h3 className="text-xl font-semibold leading-tight mb-3">
                         {feature.title}
                       </h3>
-                      <p className="text-muted-foreground">{feature.description}</p>
+                      <p className="text-muted-foreground">
+                        {feature.description}
+                      </p>
                     </CardHeader>
                     <div className="absolute top-4 right-4 text-muted-foreground/10 text-7xl font-bold z-0">
                       {index + 1}

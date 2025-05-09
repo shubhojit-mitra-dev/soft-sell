@@ -5,7 +5,6 @@ import { Testimonials } from "@/components/testimonials";
 import { WhyChooseUs } from "@/components/why-choose-us";
 import { FooterContactForm as ContactForm } from "@/components/contact-form";
 
-
 export default function Home() {
   return (
     <>

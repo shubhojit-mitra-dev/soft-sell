@@ -1,7 +1,17 @@
-'use client';
+"use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { UploadIcon, CircleIcon, CheckCircledIcon } from "@radix-ui/react-icons";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  UploadIcon,
+  CircleIcon,
+  CheckCircledIcon,
+} from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { loadSlim } from "@tsparticles/slim";
@@ -14,7 +24,8 @@ import VanillaTilt from "vanilla-tilt";
 const steps = [
   {
     title: "Upload License",
-    description: "Securely upload your unused software license details to our platform.",
+    description:
+      "Securely upload your unused software license details to our platform.",
     icon: UploadIcon,
   },
   {
@@ -24,7 +35,8 @@ const steps = [
   },
   {
     title: "Get Paid",
-    description: "Complete the sale and receive payment directly to your account.",
+    description:
+      "Complete the sale and receive payment directly to your account.",
     icon: CheckCircledIcon,
   },
 ];
@@ -42,7 +54,8 @@ const containerVariants = {
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
-    y: 0, opacity: 1,
+    y: 0,
+    opacity: 1,
     transition: {
       type: "spring",
       stiffness: 100,
@@ -79,15 +92,15 @@ function TiltCard({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <motion.div 
+    <motion.div
       ref={cardRef}
-      whileHover={{ 
+      whileHover={{
         translateY: -5,
-        transition: { duration: 0.2 } 
+        transition: { duration: 0.2 },
       }}
-      whileTap={{ 
+      whileTap={{
         scale: 0.98,
-        transition: { duration: 0.1 } 
+        transition: { duration: 0.1 },
       }}
     >
       {children}
@@ -98,15 +111,15 @@ function TiltCard({ children }: { children: React.ReactNode }) {
 export function HowItWorks() {
   useEffect(() => {
     let container: Container | undefined;
-    
+
     const initParticles = async () => {
       await loadSlim(tsParticles);
       container = await tsParticles.load({
         id: "howItWorksParticles",
-        options: particlesConfig
+        options: particlesConfig,
       });
     };
-    
+
     initParticles();
 
     return () => {
@@ -115,11 +128,14 @@ export function HowItWorks() {
   }, []);
 
   return (
-    <section id="how-it-works" className="relative min-h-screen overflow-hidden">
+    <section
+      id="how-it-works"
+      className="relative min-h-screen overflow-hidden"
+    >
       <div id="howItWorksParticles" className="absolute inset-0 -z-10" />
-      
+
       <div className="container relative z-10 mx-auto px-4 py-24 sm:px-6 lg:py-32">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -160,7 +176,9 @@ export function HowItWorks() {
                       <h3 className="text-xl font-semibold leading-tight mb-3">
                         {step.title}
                       </h3>
-                      <p className="text-muted-foreground">{step.description}</p>
+                      <p className="text-muted-foreground">
+                        {step.description}
+                      </p>
                     </CardHeader>
                     <div className="absolute top-4 right-4 text-muted-foreground/10 text-7xl font-bold z-0">
                       {index + 1}
