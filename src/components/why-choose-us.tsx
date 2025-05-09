@@ -67,7 +67,7 @@ const itemVariants = {
   },
 };
 
-function TiltCard({ children }: { children: React.ReactNode }) {
+function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -97,6 +97,7 @@ function TiltCard({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
       ref={cardRef}
+      className={className}
       whileHover={{
         translateY: -5,
         transition: { duration: 0.2 },
@@ -136,7 +137,7 @@ export function WhyChooseUs() {
     >
       <div id="tsparticles" className="absolute inset-0 -z-10" />
 
-      <div className="container relative z-10 mx-auto px-4 py-24 sm:px-6 lg:py-32">
+      <div className="container max-w-4xl relative z-10 mx-auto px-4 py-24 sm:px-6 lg:py-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -159,15 +160,15 @@ export function WhyChooseUs() {
           viewport={{ once: true }}
           className="mx-auto max-w-7xl"
         >
-          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-12 md:grid-cols-2">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
                 variants={itemVariants}
                 className="relative"
               >
-                <TiltCard>
-                  <Card className="h-full bg-card/80 backdrop-blur-sm hover:shadow-lg transition-shadow duration-200 relative overflow-hidden border-transparent hover:border-primary/20">
+                <TiltCard className="h-full max-w-xl rounded-2xl">
+                  <Card className="h-full max-w-xl bg-card/80 backdrop-blur-sm hover:shadow-lg transition-shadow duration-200 relative overflow-hidden border-transparent hover:border-primary/20">
                     <CardHeader className="relative z-10">
                       <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 ring-8 ring-primary/5">
                         <feature.icon className="h-7 w-7 text-primary" />
@@ -191,7 +192,7 @@ export function WhyChooseUs() {
       </div>
 
       <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-        <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-background opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
+        {/* <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-background opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" /> */}
       </div>
     </section>
   );

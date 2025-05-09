@@ -33,6 +33,8 @@ import {
   Instagram,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
+import { GitHubLogoIcon, InstagramLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -62,16 +64,16 @@ export function FooterContactForm() {
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 5000);
   }  return (
-    <section className="relative min-h-screen overflow-hidden bg-background/50 backdrop-blur-3xl text-foreground w-full">
+    <section className="dark relative min-h-screen overflow-hidden bg-background backdrop-blur-3xl text-foreground w-full">
       <div className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[size:60px_60px] -z-10" />
       <div className="relative z-10 px-8 pt-16 w-full max-w-[2000px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-16">
           {/* Company Info Section */}
           <div className="lg:col-span-2 space-y-8">
             <div>
-              <h2 className="text-2xl font-bold mb-2">Company Name</h2>
+              <h2 className="text-2xl font-bold mb-2">SoftSell</h2>
               <p className="text-slate-400 max-w-md">
-                Providing enterprise software solutions since 2010. We're
+                Providing enterprise software solutions. We're
                 dedicated to helping businesses grow with our cutting-edge
                 technology.
               </p>
@@ -82,16 +84,16 @@ export function FooterContactForm() {
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <Mail size={18} className="text-primary" />
-                  <span className="text-slate-300">contact@company.com</span>
+                  <span className="text-slate-300">mitrashubhojit2005@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone size={18} className="text-primary" />
-                  <span className="text-slate-300">+1 (555) 123-4567</span>
+                  <span className="text-slate-300">+91 9140719103 </span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Building size={18} className="text-primary" />
                   <span className="text-slate-300">
-                    123 Business St, Suite 100, San Francisco, CA 94107
+                    123 Doonga Road, Dehradun, Uttarakhand, India
                   </span>
                 </div>
               </div>
@@ -100,24 +102,24 @@ export function FooterContactForm() {
             <div>
               <h3 className="text-lg font-semibold mb-3">Follow Us</h3>{" "}
               <div className="flex gap-4">
-                <a
-                  href="#"
+                <Link
+                  href="https://twitter.com/"
                   className="bg-card/80 backdrop-blur-sm hover:bg-secondary/80 transition-colors p-2 rounded-full border border-primary/10"
                 >
-                  <Twitter size={20} />
-                </a>
-                <a
-                  href="#"
+                  <TwitterLogoIcon width={20} height={20} />
+                </Link>
+                <Link
+                  href="https://github.com/shubhojit-mitra-dev"
                   className="bg-card/80 backdrop-blur-sm hover:bg-secondary/80 transition-colors p-2 rounded-full border border-primary/10"
                 >
-                  <Github size={20} />
-                </a>
-                <a
-                  href="#"
+                  <GitHubLogoIcon width={20} height={20} />
+                </Link>
+                <Link
+                  href="https://www.instagram.com/"
                   className="bg-card/80 backdrop-blur-sm hover:bg-secondary/80 transition-colors p-2 rounded-full border border-primary/10"
                 >
-                  <Instagram size={20} />
-                </a>
+                  <InstagramLogoIcon width={20} height={20} />
+                </Link>
               </div>
             </div>
           </div>
@@ -127,44 +129,44 @@ export function FooterContactForm() {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a
+                <Link
                   href="#"
                   className="text-slate-300 hover:text-primary transition-colors"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#"
                   className="text-slate-300 hover:text-primary transition-colors"
                 >
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#"
                   className="text-slate-300 hover:text-primary transition-colors"
                 >
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#"
                   className="text-slate-300 hover:text-primary transition-colors"
                 >
                   Products
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#"
                   className="text-slate-300 hover:text-primary transition-colors"
                 >
                   Blog
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -314,7 +316,8 @@ export function FooterContactForm() {
         </div><footer className="w-full bg-background/80 backdrop-blur-xl mt-auto border-t border-primary/10">
           <div className="w-full max-w-[2000px] mx-auto px-8 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm">
-              <p>© 2025 Company Name. All rights reserved.</p>
+              <p>&copy; 2025 SoftSell. All rights reserved.</p>
+              <p>Built by Shubhojit Mitra</p>
               <div className="flex gap-6 mt-4 md:mt-0">
                 <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
                 <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>

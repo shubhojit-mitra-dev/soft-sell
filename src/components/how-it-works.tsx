@@ -64,7 +64,7 @@ const itemVariants = {
   },
 };
 
-function TiltCard({ children }: { children: React.ReactNode }) {
+function TiltCard({ children, className }: { children: React.ReactNode, className?: string }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -94,6 +94,7 @@ function TiltCard({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
       ref={cardRef}
+      className={className}
       whileHover={{
         translateY: -5,
         transition: { duration: 0.2 },
@@ -129,12 +130,12 @@ export function HowItWorks() {
 
   return (
     <section
-      id="how-it-works"
+      // id="how-it-works"
       className="relative min-h-screen overflow-hidden"
     >
       <div id="howItWorksParticles" className="absolute inset-0 -z-10" />
 
-      <div className="container relative z-10 mx-auto px-4 py-24 sm:px-6 lg:py-32">
+      <div className="container z-10 mx-auto px-4 py-24 sm:px-6 lg:py-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -146,7 +147,7 @@ export function HowItWorks() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
               How It Works
             </h2>
-            <div className="absolute -inset-x-20 -inset-y-10 opacity-30 blur-2xl -z-10 bg-gradient-to-r from-primary to-primary/20 rounded-full" />
+            {/* <div className="absolute -inset-x-20 -inset-y-10 opacity-30 blur-2xl -z-10 bg-gradient-to-r from-primary to-primary/20 rounded-full" /> */}
           </div>
           <p className="mt-4 text-xl text-muted-foreground">
             Simple, secure, and straightforward process
@@ -167,7 +168,7 @@ export function HowItWorks() {
                 variants={itemVariants}
                 className="relative"
               >
-                <TiltCard>
+                <TiltCard className="h-full rounded-2xl">
                   <Card className="h-full bg-card/80 backdrop-blur-sm hover:shadow-lg transition-shadow duration-200 relative overflow-hidden border-transparent hover:border-primary/20">
                     <CardHeader className="relative z-10">
                       <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 ring-8 ring-primary/5">
@@ -192,7 +193,7 @@ export function HowItWorks() {
       </div>
 
       <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-        <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-background opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
+        {/* <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-primary to-background opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" /> */}
       </div>
     </section>
   );

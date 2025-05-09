@@ -92,7 +92,7 @@ export function HeroSection() {
       <div id="heroParticles" className="absolute inset-0 -z-0" />
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        {/* <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" /> */}
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
       </div>
 
@@ -105,7 +105,7 @@ export function HeroSection() {
           {/* Announcement badge */}
           <Badge
             variant="outline"
-            className="px-4 py-1.5 bg-background/80 backdrop-blur border-primary/20 text-sm font-medium mb-2"
+            className="px-4 py-1.5 bg-background/80 backdrop-blur border-primary/20 text-[12px] sm:text-sm font-medium mb-2"
           >
             <Sparkles className="h-3.5 w-3.5 mr-2 text-primary" />
             New platform launch! Save up to 60% on enterprise software
