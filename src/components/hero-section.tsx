@@ -5,14 +5,51 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Check, ArrowRight, DollarSign, ShieldCheck, Sparkles } from "lucide-react";
 import { useState, useEffect } from "react";
+import { loadSlim } from "@tsparticles/slim";
+import Particles from "@tsparticles/react";
+import type { Container } from "@tsparticles/engine";
+import { particlesConfig } from "@/config/particles-config";
+import { tsParticles } from "@tsparticles/engine";
 
 export function HeroSection() {
   const [activeTab, setActiveTab] = useState("sell");
   const [isVisible, setIsVisible] = useState(false);
 
-  // Animation timing
   useEffect(() => {
     setIsVisible(true);
+  }, []);
+
+  // Initialize particles
+  useEffect(() => {
+    let container: Container | undefined;
+    
+    const initParticles = async () => {
+      await loadSlim(tsParticles);
+      container = await tsParticles.load({
+        id: "heroParticles",
+        options: {
+          ...particlesConfig,
+          particles: {
+            ...particlesConfig.particles,
+            color: {
+              value: "#808080"
+            },
+            number: {
+              value: 25
+            },
+            opacity: {
+              value: 0.15
+            }
+          }
+        }
+      });
+    };
+    
+    initParticles();
+
+    return () => {
+      container?.destroy();
+    };
   }, []);
 
   // Stats for the animated counter
@@ -43,6 +80,7 @@ export function HeroSection() {
 
   return (
     <section className="w-full min-h-screen bg-gradient-to-b from-background to-primary/5 flex items-center justify-center overflow-hidden relative py-16">
+      <div id="heroParticles" className="absolute inset-0 -z-0" />
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -91,8 +129,7 @@ export function HeroSection() {
                         </p>
                         <ul className="space-y-2">
                           {[
-                            "Instant verification system",
-                            "Secure payment processing",
+                            "Instant verification system",                            "Secure payment processing",
                             "Professional license transfer support"
                           ].map((item, i) => (
                             <li key={i} className="flex items-center gap-2">
@@ -102,10 +139,25 @@ export function HeroSection() {
                           ))}
                         </ul>
                         <div className="pt-4">
-                          <Button size="lg" className="group">
-                            Start Selling
-                            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                          </Button>
+                          <div className="relative">
+                            <input
+                              type="file"
+                              accept=".pdf"
+                              onChange={(e) => {
+                                const file = e.target.files?.[0];
+                                if (file) {
+                                  // Handle the file upload here
+                                  console.log('Selected file:', file);
+                                }
+                              }}
+                              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                              aria-label="Upload license document"
+                            />
+                            <Button size="lg" className="group w-full">
+                              Start Selling
+                              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                            </Button>
+                          </div>
                         </div>
                       </div>
                       <div className="lg:col-span-2 relative">
