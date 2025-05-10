@@ -1,12 +1,12 @@
-# <div style="text-align: center; font-size: 48px;"><img src="./src/app/favicon.ico" alt="SoftSell Logo" width="58"/> SoftSell</div>
-
-> **The premier marketplace for software license resale**
+# <div align="center" size="48px"><img src="./src/app/favicon.ico" alt="SoftSell Logo" width="58"/> SoftSell</div>
+<div align="center">
+<p>The premier marketplace for software license resale</p>
 
 [![Live Demo](https://img.shields.io/badge/demo-live-brightgreen.svg)](https://soft-sell-project.vercel.app/)
 [![Next.js](https://img.shields.io/badge/built%20with-Next.js%2015-blue.svg)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6.svg)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4-38B2AC.svg)](https://tailwindcss.com/)
-
+</div>
 <p align="center">
   <img src="./public/dark.png" width="45%" alt="SoftSell Dark Theme">
   &nbsp; &nbsp; &nbsp;
