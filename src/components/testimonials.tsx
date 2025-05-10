@@ -1,13 +1,12 @@
 "use client";
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { particlesConfig } from "@/config/particles-config";
+import type { Container } from "@tsparticles/engine";
+import { tsParticles } from "@tsparticles/engine";
+import { loadSlim } from "@tsparticles/slim";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import { loadSlim } from "@tsparticles/slim";
-import Particles from "@tsparticles/react";
-import type { Container } from "@tsparticles/engine";
-import { particlesConfig } from "@/config/particles-config";
-import { tsParticles } from "@tsparticles/engine";
 
 const testimonials = [
   {
@@ -108,8 +107,8 @@ export function Testimonials() {
           viewport={{ once: true }}
           className="mx-auto max-w-7xl"
         >
-          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((testimonial, index) => (
+          <div className="grid gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {testimonials.map((testimonial) => (
               <motion.div
                 key={testimonial.name}
                 variants={itemVariants}
@@ -135,10 +134,10 @@ export function Testimonials() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground relative">
-                      "{testimonial.content}"
+                      {`"${testimonial.content}"`}
                     </p>
                     <div className="absolute top-4 right-4 text-primary/5 text-8xl font-serif">
-                      "
+                      {"\""}
                     </div>
                   </CardContent>
                 </Card>

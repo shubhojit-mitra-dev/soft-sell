@@ -1,21 +1,20 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { particlesConfig } from "@/config/particles-config";
+import type { Container } from "@tsparticles/engine";
+import { tsParticles } from "@tsparticles/engine";
+import { loadSlim } from "@tsparticles/slim";
 import {
-  Check,
   ArrowRight,
+  Check,
   DollarSign,
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
-import { useState, useEffect } from "react";
-import { loadSlim } from "@tsparticles/slim";
-import Particles from "@tsparticles/react";
-import type { Container } from "@tsparticles/engine";
-import { particlesConfig } from "@/config/particles-config";
-import { tsParticles } from "@tsparticles/engine";
+import { useEffect, useState } from "react";
 
 export function HeroSection() {
   const [activeTab, setActiveTab] = useState("sell");
@@ -225,8 +224,8 @@ export function HeroSection() {
                         </div>
                       </div>
                       <div className="lg:col-span-2 relative">
-                        <div className="bg-gradient-to-br from-secondary/20 via-secondary/5 to-transparent rounded-xl aspect-square flex items-center justify-center p-8">
-                          <ShieldCheck className="w-32 h-32 text-secondary/40" />
+                        <div className="bg-gradient-to-br from-primary/20 via-primary/5 to-transparent rounded-xl aspect-square flex items-center justify-center p-8">
+                          <ShieldCheck className="w-32 h-32 text-primary/40" />
                         </div>
                       </div>
                     </div>

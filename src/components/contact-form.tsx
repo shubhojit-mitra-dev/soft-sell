@@ -1,9 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -22,19 +19,18 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { GitHubLogoIcon, InstagramLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 import {
+  Building,
   CheckCircle,
   Mail,
-  Building,
-  Phone,
-  Github,
-  Twitter,
-  Instagram,
+  Phone
 } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
-import { GitHubLogoIcon, InstagramLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -64,7 +60,7 @@ export function FooterContactForm() {
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 5000);
   }  return (
-    <section className="dark relative min-h-screen overflow-hidden bg-background backdrop-blur-3xl text-foreground w-full">
+    <section className="dark relative h-fit overflow-hidden bg-background backdrop-blur-3xl text-foreground w-full">
       <div className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[size:60px_60px] -z-10" />
       <div className="relative z-10 px-8 pt-16 w-full max-w-[2000px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-16">
@@ -73,7 +69,7 @@ export function FooterContactForm() {
             <div>
               <h2 className="text-2xl font-bold mb-2">SoftSell</h2>
               <p className="text-slate-400 max-w-md">
-                Providing enterprise software solutions. We're
+                Providing enterprise software solutions. We&apos;re
                 dedicated to helping businesses grow with our cutting-edge
                 technology.
               </p>
@@ -181,7 +177,7 @@ export function FooterContactForm() {
                 <CheckCircle className="h-4 w-4" />
                 <AlertTitle>Thank you!</AlertTitle>
                 <AlertDescription>
-                  Your message has been sent successfully. We'll get back to you
+                  Your message has been sent successfully. We&apos;ll get back to you
                   within 24 hours.
                 </AlertDescription>
               </Alert>
@@ -222,7 +218,7 @@ export function FooterContactForm() {
                               placeholder="you@company.com"
                               type="email"
                               {...field}
-                              className="bg-slate-800 border-slate-700 focus-visible:ring-primary"
+                              className="bg-card/80 backdrop-blur-sm border-primary/10 focus-visible:ring-secondary"
                             />
                           </FormControl>
                           <FormMessage className="text-red-400" />
@@ -244,7 +240,7 @@ export function FooterContactForm() {
                             <Input
                               placeholder="Your company"
                               {...field}
-                              className="bg-slate-800 border-slate-700 focus-visible:ring-primary"
+                              className="bg-card/80 backdrop-blur-sm border-primary/10 focus-visible:ring-secondary"
                             />
                           </FormControl>
                           <FormMessage className="text-red-400" />
@@ -264,11 +260,11 @@ export function FooterContactForm() {
                             defaultValue={field.value}
                           >
                             <FormControl>
-                              <SelectTrigger className="bg-slate-800 border-slate-700 focus:ring-primary">
+                              <SelectTrigger className="bg-card/80 backdrop-blur-sm border-primary/10 focus-visible:ring-secondary">
                                 <SelectValue placeholder="Select license type" />
                               </SelectTrigger>
                             </FormControl>
-                            <SelectContent className="bg-slate-800 border-slate-700">
+                            <SelectContent className="bg-card/80 backdrop-blur-sm border-primary/10 focus-visible:ring-secondary">
                               <SelectItem value="enterprise">
                                 Enterprise Software
                               </SelectItem>
@@ -298,7 +294,7 @@ export function FooterContactForm() {
                         <FormControl>
                           <Textarea
                             placeholder="Tell us about your needs..."
-                            className="min-h-[100px] bg-slate-800 border-slate-700 focus-visible:ring-primary"
+                            className="min-h-[100px] bg-card/80 backdrop-blur-sm border-primary/10 focus-visible:ring-secondary"
                             {...field}
                           />
                         </FormControl>

@@ -1,10 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import { useTheme } from "next-themes";
-import Link from "next/link";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,25 +9,24 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import {
-  DollarSign,
-  Menu,
-  X,
-  ChevronDown,
-  Users,
-  Zap,
-  LifeBuoy,
-  ShieldCheck,
   BookOpen,
+  ChevronDown,
+  DollarSign,
+  LifeBuoy,
+  Menu,
+  ShieldCheck,
+  Users,
+  X,
+  Zap,
 } from "lucide-react";
+import { useTheme } from "next-themes";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
@@ -102,7 +97,7 @@ export function Navbar() {
         {/* Logo with Favicon */}
         <Link href="/" className="flex items-center space-x-2 font-bold">
           <div className="h-8 w-8 flex items-center justify-center">
-            <img src="/favicon.ico" alt="Logo" className="h-full w-full" />
+            <Image src="/favicon.ico" height={50} width={50} alt="Logo" className="h-full w-full" />
           </div>
           <span className="text-xl bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
             SoftSell
@@ -248,7 +243,9 @@ export function Navbar() {
                 <div className="flex justify-between items-center py-4 border-b">
                   <div className="flex items-center space-x-2">
                     <div className="h-8 w-8 flex items-center justify-center">
-                      <img
+                      <Image
+                        width={50}
+                        height={50}
                         src="/favicon.ico"
                         alt="Logo"
                         className="h-full w-full"

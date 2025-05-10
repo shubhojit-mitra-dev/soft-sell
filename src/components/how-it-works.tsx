@@ -2,23 +2,19 @@
 
 import {
   Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
+  CardHeader
 } from "@/components/ui/card";
+import { particlesConfig } from "@/config/particles-config";
 import {
-  UploadIcon,
-  CircleIcon,
   CheckCircledIcon,
+  CircleIcon,
+  UploadIcon,
 } from "@radix-ui/react-icons";
+import type { Container } from "@tsparticles/engine";
+import { tsParticles } from "@tsparticles/engine";
+import { loadSlim } from "@tsparticles/slim";
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { loadSlim } from "@tsparticles/slim";
-import Particles from "@tsparticles/react";
-import type { Container } from "@tsparticles/engine";
-import { particlesConfig } from "@/config/particles-config";
-import { tsParticles } from "@tsparticles/engine";
 import VanillaTilt from "vanilla-tilt";
 
 const steps = [
@@ -68,8 +64,9 @@ function TiltCard({ children, className }: { children: React.ReactNode, classNam
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (cardRef.current) {
-      VanillaTilt.init(cardRef.current, {
+    const currentCard = cardRef.current;
+    if (currentCard) {
+      VanillaTilt.init(currentCard, {
         max: 15,
         speed: 400,
         scale: 1.03,
@@ -84,9 +81,9 @@ function TiltCard({ children, className }: { children: React.ReactNode, classNam
       });
     }
     return () => {
-      if (cardRef.current) {
-        // @ts-ignore
-        cardRef.current.vanillaTilt?.destroy();
+      if (currentCard) {
+        // VanillaTilt stores the instance on the DOM element
+        (currentCard as { vanillaTilt?: { destroy: () => void } }).vanillaTilt?.destroy();
       }
     };
   }, []);
